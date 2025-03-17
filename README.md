@@ -1,19 +1,24 @@
-# MCP Demo
+# Hello World Web App
 
-This is a demo repository for MCP.
+A simple web application that displays "Hello World" in different languages.
 
-## Overview
+## Features
 
-This repository serves as a demonstration for creating and managing repositories using the MCP tool.
+- Displays a greeting message
+- Button to cycle through greetings in different languages
+- Responsive design
+- Modern UI with hover effects
 
-## Getting Started
+## How to Run
 
-To get started, clone the repository and explore the contents.
+Simply open the `index.html` file in a web browser to run the application.
 
-```bash
-git clone https://github.com/ktsim/mcp-demo.git
-```
+## Structure
 
-## License
+- `index.html`: Main HTML file
+- `styles.css`: CSS styles for the application
+- `app.js`: JavaScript functionality
 
-This project is licensed under the MIT License.
+## Usage
+
+Click the button to cycle through different language greetings.
