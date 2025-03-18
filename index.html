@@ -15,7 +15,7 @@
         </div>
         
         <div class="section calculator">
-            <h2>Advanced Scientific Calculator</h2>
+            <h2>Scientific Calculator</h2>
             <div class="calc-container">
                 <div class="display-container">
                     <div class="memory-display">
@@ -37,20 +37,6 @@
                     <button onclick="toggleGraphMode()" class="mode-btn" id="graph-mode-btn">Graph</button>
                 </div>
 
-                <!-- Graph Panel -->
-                <div id="graph-panel" class="graph-panel">
-                    <div class="graph-controls">
-                        <input type="text" id="function-input" placeholder="Enter function (e.g., sin(x))">
-                        <div class="range-inputs">
-                            <input type="number" id="x-min" placeholder="X min" value="-10">
-                            <input type="number" id="x-max" placeholder="X max" value="10">
-                        </div>
-                        <button onclick="plotFunction()" class="plot-btn">Plot</button>
-                    </div>
-                    <div id="graph-container"></div>
-                </div>
-
-                <!-- Calculator Panels -->
                 <div id="calculator-panels">
                     <!-- Basic Panel -->
                     <div class="calc-buttons" id="basic-buttons">
@@ -89,7 +75,7 @@
                     </div>
 
                     <!-- Scientific Panel -->
-                    <div class="calc-buttons scientific-buttons" id="scientific-buttons" style="display: none;">
+                    <div class="calc-buttons" id="scientific-buttons" style="display: none;">
                         <!-- Constants -->
                         <button onclick="insertConstant('pi')" class="constant">π</button>
                         <button onclick="insertConstant('e')" class="constant">e</button>
@@ -128,12 +114,12 @@
                     </div>
 
                     <!-- Bit Operations Panel -->
-                    <div class="calc-buttons bit-buttons" id="bit-buttons" style="display: none;">
+                    <div class="calc-buttons" id="bit-buttons" style="display: none;">
                         <!-- Base Conversion -->
-                        <button onclick="convertBase('hex')" class="base">HEX</button>
-                        <button onclick="convertBase('dec')" class="base">DEC</button>
-                        <button onclick="convertBase('oct')" class="base">OCT</button>
-                        <button onclick="convertBase('bin')" class="base">BIN</button>
+                        <button onclick="convertBase('hex')" class="bit-op">HEX</button>
+                        <button onclick="convertBase('dec')" class="bit-op">DEC</button>
+                        <button onclick="convertBase('oct')" class="bit-op">OCT</button>
+                        <button onclick="convertBase('bin')" class="bit-op">BIN</button>
 
                         <!-- Bit Operations -->
                         <button onclick="bitOperation('and')" class="bit-op">AND</button>
@@ -153,6 +139,19 @@
                         <button onclick="setWordSize(32)" class="bit-size">32-bit</button>
                         <button onclick="setWordSize(64)" class="bit-size">64-bit</button>
                     </div>
+                </div>
+
+                <!-- Graph Panel -->
+                <div id="graph-panel" class="graph-panel">
+                    <div class="graph-controls">
+                        <input type="text" id="function-input" placeholder="Enter function (e.g., sin(x))">
+                        <div class="range-inputs">
+                            <input type="number" id="x-min" placeholder="X min" value="-10">
+                            <input type="number" id="x-max" placeholder="X max" value="10">
+                        </div>
+                        <button onclick="plotFunction()" class="plot-btn">Plot</button>
+                    </div>
+                    <div id="graph-container"></div>
                 </div>
             </div>
         </div>
