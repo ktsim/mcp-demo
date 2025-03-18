@@ -1,12 +1,225 @@
-/* ... Previous CSS content ... */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5;
+}
 
-/* New styles for graphing and bit operations */
+.container {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
 
+.section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Hello World Section */
+.hello-world h1 {
+    color: #1a73e8;
+    margin-bottom: 1rem;
+}
+
+.hello-world button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hello-world button:hover {
+    background-color: #1557b0;
+}
+
+/* Calculator Section */
+.calculator h2 {
+    color: #1a73e8;
+    margin-bottom: 1.5rem;
+}
+
+.calc-container {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.display-container {
+    margin-bottom: 1rem;
+}
+
+.memory-display {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.base-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.base-display span {
+    background-color: #f8f9fa;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#display {
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    text-align: right;
+    padding: 0.5rem;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    font-family: monospace;
+}
+
+.mode-toggles {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mode-btn:hover {
+    background-color: #e9ecef;
+}
+
+.mode-btn.active {
+    background-color: #e3f2fd;
+    color: #1a73e8;
+    border-color: #1a73e8;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+.calc-buttons button {
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.calc-buttons button:hover {
+    background-color: #e9ecef;
+}
+
+.calc-buttons button:active {
+    transform: scale(0.95);
+}
+
+.calc-buttons .operator {
+    background-color: #e3f2fd;
+    color: #1a73e8;
+}
+
+.calc-buttons .function {
+    background-color: #f3e5f5;
+    color: #9c27b0;
+}
+
+.calc-buttons .memory {
+    background-color: #fff3e0;
+    color: #ef6c00;
+    font-size: 1rem;
+}
+
+.calc-buttons .scientific {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    font-size: 1rem;
+}
+
+.calc-buttons .constant {
+    background-color: #e0f2f1;
+    color: #009688;
+    font-size: 1rem;
+}
+
+.calc-buttons .bit-op {
+    background-color: #e8eaf6;
+    color: #3f51b5;
+    font-size: 1rem;
+}
+
+.calc-buttons .bit-size {
+    background-color: #efebe9;
+    color: #795548;
+    font-size: 1rem;
+}
+
+.calc-buttons .clear {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.calc-buttons .equals {
+    background-color: #1a73e8;
+    color: white;
+}
+
+.calc-buttons .equals:hover {
+    background-color: #1557b0;
+}
+
+/* Graph Panel */
 .graph-panel {
     margin: 1rem 0;
     padding: 1rem;
     background-color: #f8f9fa;
     border-radius: 8px;
+    display: none;
 }
 
 .graph-controls {
@@ -51,49 +264,34 @@
     border-radius: 4px;
 }
 
-/* Bit Operation Buttons */
-.calc-buttons .bit-op {
-    background-color: #e8eaf6;
-    color: #3f51b5;
-}
-
-.calc-buttons .bit-size {
-    background-color: #efebe9;
-    color: #795548;
-}
-
-.calc-buttons .constant {
-    background-color: #e0f2f1;
-    color: #009688;
-}
-
-/* Mode Buttons */
-.mode-toggles {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-/* Responsive Design Updates */
+/* Responsive Design */
 @media (max-width: 500px) {
-    .graph-controls {
-        font-size: 0.9rem;
+    .container {
+        padding: 1rem;
     }
-
-    .range-inputs {
-        flex-direction: column;
+    
+    .calc-buttons button {
+        padding: 0.8rem;
+        font-size: 1rem;
     }
-
-    #graph-container {
-        height: 250px;
-    }
-
+    
+    .calc-buttons .memory,
+    .calc-buttons .scientific,
     .calc-buttons .bit-op,
     .calc-buttons .bit-size,
     .calc-buttons .constant {
         font-size: 0.9rem;
     }
+    
+    .base-display {
+        font-size: 0.75rem;
+    }
+    
+    .range-inputs {
+        flex-direction: column;
+    }
+    
+    #graph-container {
+        height: 250px;
+    }
 }
-
-/* Add all previous CSS styles here */
