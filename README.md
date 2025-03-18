@@ -1,6 +1,6 @@
-# Scientific Calculator & Hello World Web App
+# Advanced Scientific Calculator & Hello World Web App
 
-A comprehensive web application that combines a Hello World greeting display with a feature-rich scientific calculator.
+A comprehensive web application combining a Hello World greeting display with a feature-rich scientific calculator, including graphing capabilities and bit operations.
 
 ## Features
 
@@ -21,12 +21,31 @@ A comprehensive web application that combines a Hello World greeting display wit
 #### Scientific Functions
 - Trigonometric functions (sin, cos, tan)
 - Inverse trigonometric functions (asin, acos, atan)
-- Logarithmic functions (log, ln)
+- Hyperbolic functions (sinh, cosh, tanh)
+- Inverse hyperbolic functions (asinh, acosh, atanh)
+- Logarithmic functions (log₁₀, log₂, ln)
 - Exponential functions (exp, x^y)
 - Powers and roots (x², x³, √, ³√)
-- Constants (π, e)
-- Factorial (n!)
-- Reciprocal (1/x)
+- Floor function (⌊x⌋)
+- Absolute value (|x|)
+
+#### Constants
+- π (Pi)
+- e (Euler's number)
+- φ (Golden ratio)
+- γ (Euler-Mascheroni constant)
+
+#### Graphing Capabilities
+- Function plotting
+- Adjustable x-axis range
+- Interactive graph display
+- Support for mathematical expressions
+
+#### Bit Operations
+- Basic operations (AND, OR, XOR, NOT)
+- Bit shifts (<<, >>, >>>)
+- Rotate left (ROL)
+- Adjustable word size (8, 16, 32, 64 bit)
 
 #### Number Base Conversions
 - Hexadecimal (HEX)
@@ -43,7 +62,7 @@ A comprehensive web application that combines a Hello World greeting display wit
 
 #### Additional Features
 - Angle mode toggle (DEG/RAD)
-- Basic/Scientific mode toggle
+- Basic/Scientific/Graph mode toggle
 - Error handling
 - Clear function
 - Backspace function
@@ -69,7 +88,7 @@ Simply open the `index.html` file in a web browser to run the application.
 
 1. Mode Selection:
    - Click 'DEG/RAD' to toggle angle mode
-   - Click 'Basic/Scientific' to toggle calculator mode
+   - Click between Basic/Scientific/Graph modes
 
 2. Basic Operations:
    - Use number pad and operators for basic calculations
@@ -77,17 +96,22 @@ Simply open the `index.html` file in a web browser to run the application.
    - Press 'C' to clear
 
 3. Scientific Functions:
-   - Trigonometric: sin, cos, tan, asin, acos, atan
-   - Logarithmic: log (base 10), ln (natural log)
-   - Powers: x², x³, x^y
-   - Roots: √, ³√
-   - Constants: π, e
+   - Access trigonometric and hyperbolic functions
+   - Use logarithmic and exponential functions
+   - Calculate powers, roots, and factorials
+   - Insert mathematical constants
 
-4. Number Base Conversions:
-   - Click HEX/DEC/OCT/BIN to convert numbers
-   - View real-time conversions in the display area
+4. Graphing:
+   - Enter a mathematical function
+   - Set x-axis range
+   - Click 'Plot' to visualize
 
-5. Memory Operations:
+5. Bit Operations:
+   - Perform bitwise operations
+   - Change word size
+   - View results in different bases
+
+6. Memory Operations:
    - MC: Clear memory
    - MR: Recall memory
    - M+: Add to memory

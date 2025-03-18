@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scientific Calculator & Hello World</title>
+    <title>Advanced Scientific Calculator & Hello World</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,7 +15,7 @@
         </div>
         
         <div class="section calculator">
-            <h2>Scientific Calculator</h2>
+            <h2>Advanced Scientific Calculator</h2>
             <div class="calc-container">
                 <div class="display-container">
                     <div class="memory-display">
@@ -32,71 +33,126 @@
                 
                 <div class="mode-toggles">
                     <button onclick="toggleAngleMode()" class="mode-btn" id="angle-mode-btn">DEG</button>
-                    <button onclick="toggleScientificMode()" class="mode-btn" id="scientific-mode-btn">Basic</button>
+                    <button onclick="toggleCalculatorMode()" class="mode-btn" id="calculator-mode-btn">Basic</button>
+                    <button onclick="toggleGraphMode()" class="mode-btn" id="graph-mode-btn">Graph</button>
                 </div>
 
-                <div class="calc-buttons" id="basic-buttons">
-                    <!-- Basic Calculator Buttons -->
-                    <button onclick="memoryOperation('mc')" class="memory">MC</button>
-                    <button onclick="memoryOperation('mr')" class="memory">MR</button>
-                    <button onclick="memoryOperation('mPlus')" class="memory">M+</button>
-                    <button onclick="memoryOperation('mMinus')" class="memory">M-</button>
-                    
-                    <button onclick="clearDisplay()" class="clear">C</button>
-                    <button onclick="backspace()" class="function">⌫</button>
-                    <button onclick="percentage()" class="function">%</button>
-                    <button onclick="squareRoot()" class="function">√</button>
-                    
-                    <button onclick="appendToDisplay('7')">7</button>
-                    <button onclick="appendToDisplay('8')">8</button>
-                    <button onclick="appendToDisplay('9')">9</button>
-                    <button onclick="appendToDisplay('+')" class="operator">+</button>
-                    
-                    <button onclick="appendToDisplay('4')">4</button>
-                    <button onclick="appendToDisplay('5')">5</button>
-                    <button onclick="appendToDisplay('6')">6</button>
-                    <button onclick="appendToDisplay('-')" class="operator">-</button>
-                    
-                    <button onclick="appendToDisplay('1')">1</button>
-                    <button onclick="appendToDisplay('2')">2</button>
-                    <button onclick="appendToDisplay('3')">3</button>
-                    <button onclick="appendToDisplay('*')" class="operator">×</button>
-                    
-                    <button onclick="toggleSign()" class="function">±</button>
-                    <button onclick="appendToDisplay('0')">0</button>
-                    <button onclick="appendToDisplay('.')" class="decimal">.</button>
-                    <button onclick="appendToDisplay('/')" class="operator">÷</button>
-                    
-                    <button onclick="square()" class="function">x²</button>
-                    <button onclick="calculate()" class="equals" style="grid-column: span 3">=</button>
+                <!-- Graph Panel -->
+                <div id="graph-panel" class="graph-panel" style="display: none;">
+                    <div class="graph-controls">
+                        <input type="text" id="function-input" placeholder="Enter function (e.g., sin(x))">
+                        <div class="range-inputs">
+                            <input type="number" id="x-min" placeholder="X min" value="-10">
+                            <input type="number" id="x-max" placeholder="X max" value="10">
+                        </div>
+                        <button onclick="plotFunction()" class="plot-btn">Plot</button>
+                    </div>
+                    <div id="graph-container"></div>
                 </div>
 
-                <div class="calc-buttons scientific-buttons" id="scientific-buttons" style="display: none;">
-                    <!-- Scientific Calculator Buttons -->
-                    <button onclick="convertBase('hex')" class="base">HEX</button>
-                    <button onclick="convertBase('dec')" class="base">DEC</button>
-                    <button onclick="convertBase('oct')" class="base">OCT</button>
-                    <button onclick="convertBase('bin')" class="base">BIN</button>
+                <!-- Calculator Buttons -->
+                <div id="calculator-panels">
+                    <!-- Basic Panel -->
+                    <div class="calc-buttons" id="basic-buttons">
+                        <button onclick="memoryOperation('mc')" class="memory">MC</button>
+                        <button onclick="memoryOperation('mr')" class="memory">MR</button>
+                        <button onclick="memoryOperation('mPlus')" class="memory">M+</button>
+                        <button onclick="memoryOperation('mMinus')" class="memory">M-</button>
+                        
+                        <button onclick="clearDisplay()" class="clear">C</button>
+                        <button onclick="backspace()" class="function">⌫</button>
+                        <button onclick="percentage()" class="function">%</button>
+                        <button onclick="squareRoot()" class="function">√</button>
+                        
+                        <button onclick="appendToDisplay('7')">7</button>
+                        <button onclick="appendToDisplay('8')">8</button>
+                        <button onclick="appendToDisplay('9')">9</button>
+                        <button onclick="appendToDisplay('+')" class="operator">+</button>
+                        
+                        <button onclick="appendToDisplay('4')">4</button>
+                        <button onclick="appendToDisplay('5')">5</button>
+                        <button onclick="appendToDisplay('6')">6</button>
+                        <button onclick="appendToDisplay('-')" class="operator">-</button>
+                        
+                        <button onclick="appendToDisplay('1')">1</button>
+                        <button onclick="appendToDisplay('2')">2</button>
+                        <button onclick="appendToDisplay('3')">3</button>
+                        <button onclick="appendToDisplay('*')" class="operator">×</button>
+                        
+                        <button onclick="toggleSign()" class="function">±</button>
+                        <button onclick="appendToDisplay('0')">0</button>
+                        <button onclick="appendToDisplay('.')" class="decimal">.</button>
+                        <button onclick="appendToDisplay('/')" class="operator">÷</button>
+                        
+                        <button onclick="square()" class="function">x²</button>
+                        <button onclick="calculate()" class="equals" style="grid-column: span 3">=</button>
+                    </div>
 
-                    <button onclick="scientificFunction('sin')" class="scientific">sin</button>
-                    <button onclick="scientificFunction('cos')" class="scientific">cos</button>
-                    <button onclick="scientificFunction('tan')" class="scientific">tan</button>
-                    <button onclick="scientificFunction('pow')" class="scientific">x^y</button>
+                    <!-- Scientific Panel -->
+                    <div class="calc-buttons scientific-buttons" id="scientific-buttons" style="display: none;">
+                        <!-- Constants -->
+                        <button onclick="insertConstant('pi')" class="constant">π</button>
+                        <button onclick="insertConstant('e')" class="constant">e</button>
+                        <button onclick="insertConstant('phi')" class="constant">φ</button>
+                        <button onclick="insertConstant('gamma')" class="constant">γ</button>
 
-                    <button onclick="scientificFunction('asin')" class="scientific">asin</button>
-                    <button onclick="scientificFunction('acos')" class="scientific">acos</button>
-                    <button onclick="scientificFunction('atan')" class="scientific">atan</button>
-                    <button onclick="scientificFunction('exp')" class="scientific">exp</button>
+                        <!-- Trigonometric -->
+                        <button onclick="scientificFunction('sin')" class="scientific">sin</button>
+                        <button onclick="scientificFunction('cos')" class="scientific">cos</button>
+                        <button onclick="scientificFunction('tan')" class="scientific">tan</button>
+                        <button onclick="scientificFunction('pow')" class="scientific">x^y</button>
 
-                    <button onclick="scientificFunction('log')" class="scientific">log</button>
-                    <button onclick="scientificFunction('ln')" class="scientific">ln</button>
-                    <button onclick="insertConstant('pi')" class="scientific">π</button>
-                    <button onclick="insertConstant('e')" class="scientific">e</button>
+                        <!-- Inverse Trigonometric -->
+                        <button onclick="scientificFunction('asin')" class="scientific">asin</button>
+                        <button onclick="scientificFunction('acos')" class="scientific">acos</button>
+                        <button onclick="scientificFunction('atan')" class="scientific">atan</button>
+                        <button onclick="scientificFunction('exp')" class="scientific">exp</button>
 
-                    <button onclick="factorial()" class="scientific">n!</button>
-                    <button onclick="scientificFunction('cubeRoot')" class="scientific">³√</button>
-                    <button onclick="scientificFunction('cube')" class="scientific">x³</button>
-                    <button onclick="scientificFunction('reciprocal')" class="scientific">1/x</button>
+                        <!-- Hyperbolic -->
+                        <button onclick="scientificFunction('sinh')" class="scientific">sinh</button>
+                        <button onclick="scientificFunction('cosh')" class="scientific">cosh</button>
+                        <button onclick="scientificFunction('tanh')" class="scientific">tanh</button>
+                        <button onclick="scientificFunction('log2')" class="scientific">log₂</button>
+
+                        <!-- Inverse Hyperbolic -->
+                        <button onclick="scientificFunction('asinh')" class="scientific">asinh</button>
+                        <button onclick="scientificFunction('acosh')" class="scientific">acosh</button>
+                        <button onclick="scientificFunction('atanh')" class="scientific">atanh</button>
+                        <button onclick="scientificFunction('log')" class="scientific">log₁₀</button>
+
+                        <!-- Other Functions -->
+                        <button onclick="scientificFunction('ln')" class="scientific">ln</button>
+                        <button onclick="factorial()" class="scientific">n!</button>
+                        <button onclick="scientificFunction('abs')" class="scientific">|x|</button>
+                        <button onclick="scientificFunction('floor')" class="scientific">⌊x⌋</button>
+                    </div>
+
+                    <!-- Bit Operations Panel -->
+                    <div class="calc-buttons bit-buttons" id="bit-buttons" style="display: none;">
+                        <!-- Base Conversion -->
+                        <button onclick="convertBase('hex')" class="base">HEX</button>
+                        <button onclick="convertBase('dec')" class="base">DEC</button>
+                        <button onclick="convertBase('oct')" class="base">OCT</button>
+                        <button onclick="convertBase('bin')" class="base">BIN</button>
+
+                        <!-- Bit Operations -->
+                        <button onclick="bitOperation('and')" class="bit-op">AND</button>
+                        <button onclick="bitOperation('or')" class="bit-op">OR</button>
+                        <button onclick="bitOperation('xor')" class="bit-op">XOR</button>
+                        <button onclick="bitOperation('not')" class="bit-op">NOT</button>
+
+                        <!-- Bit Shifts -->
+                        <button onclick="bitOperation('lshift')" class="bit-op"><<</button>
+                        <button onclick="bitOperation('rshift')" class="bit-op">>></button>
+                        <button onclick="bitOperation('zrshift')" class="bit-op">>>></button>
+                        <button onclick="bitOperation('rol')" class="bit-op">ROL</button>
+
+                        <!-- Word Size -->
+                        <button onclick="setWordSize(8)" class="bit-size">8-bit</button>
+                        <button onclick="setWordSize(16)" class="bit-size">16-bit</button>
+                        <button onclick="setWordSize(32)" class="bit-size">32-bit</button>
+                        <button onclick="setWordSize(64)" class="bit-size">64-bit</button>
+                    </div>
                 </div>
             </div>
         </div>
