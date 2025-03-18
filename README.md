@@ -1,6 +1,6 @@
-# Hello World & Calculator Web App
+# Hello World & Advanced Calculator Web App
 
-A simple web application that combines a Hello World greeting display with a functional calculator.
+A web application that combines a Hello World greeting display with a feature-rich calculator.
 
 ## Features
 
@@ -9,12 +9,35 @@ A simple web application that combines a Hello World greeting display with a fun
 - Button to cycle through greetings in different languages
 - Supports English, French, Spanish, Chinese, and Japanese
 
-### Calculator
-- Basic arithmetic operations (+, -, ×, ÷)
+### Advanced Calculator
+
+#### Basic Operations
+- Addition (+)
+- Subtraction (-)
+- Multiplication (×)
+- Division (÷)
 - Decimal point support
-- Clear function
+
+#### Advanced Functions
+- Square root (√)
+- Square (x²)
+- Percentage (%)
+- Sign toggle (±)
+- Backspace (⌫)
+
+#### Memory Functions
+- Memory Clear (MC)
+- Memory Recall (MR)
+- Memory Add (M+)
+- Memory Subtract (M-)
+- Memory indicator display
+
+#### Additional Features
 - Error handling
+- Clear function
 - Responsive design
+- Visual feedback on button press
+- Prevents invalid inputs
 
 ## How to Run
 
@@ -23,8 +46,8 @@ Simply open the `index.html` file in a web browser to run the application.
 ## Structure
 
 - `index.html`: Main HTML file containing both Hello World and Calculator sections
-- `styles.css`: CSS styles for both features
-- `app.js`: JavaScript functionality for both features
+- `styles.css`: CSS styles with responsive design
+- `app.js`: JavaScript functionality for all features
 
 ## Usage
 
@@ -32,7 +55,20 @@ Simply open the `index.html` file in a web browser to run the application.
 - Click the button to cycle through different language greetings
 
 ### Calculator
-1. Click numbers and operators to build your calculation
-2. Press '=' to see the result
-3. Press 'C' to clear the display
-4. Handles decimal numbers and basic arithmetic operations
+1. Basic Operations:
+   - Click numbers and operators to build your calculation
+   - Press '=' to see the result
+   - Press 'C' to clear
+
+2. Advanced Functions:
+   - √: Calculate square root
+   - x²: Square the current number
+   - %: Convert to percentage
+   - ±: Toggle between positive/negative
+   - ⌫: Delete last digit
+
+3. Memory Operations:
+   - MC: Clear memory
+   - MR: Recall memory
+   - M+: Add to memory
+   - M-: Subtract from memory

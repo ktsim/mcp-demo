@@ -16,25 +16,43 @@
         <div class="section calculator">
             <h2>Calculator</h2>
             <div class="calc-container">
+                <div class="memory-display">
+                    <span id="memory-indicator">M: 0</span>
+                </div>
                 <input type="text" id="display" readonly>
                 <div class="calc-buttons">
-                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="memoryOperation('mc')" class="memory">MC</button>
+                    <button onclick="memoryOperation('mr')" class="memory">MR</button>
+                    <button onclick="memoryOperation('mPlus')" class="memory">M+</button>
+                    <button onclick="memoryOperation('mMinus')" class="memory">M-</button>
+                    
+                    <button onclick="clearDisplay()" class="clear">C</button>
+                    <button onclick="backspace()" class="function">⌫</button>
+                    <button onclick="percentage()" class="function">%</button>
+                    <button onclick="squareRoot()" class="function">√</button>
+                    
                     <button onclick="appendToDisplay('7')">7</button>
                     <button onclick="appendToDisplay('8')">8</button>
                     <button onclick="appendToDisplay('9')">9</button>
                     <button onclick="appendToDisplay('+')" class="operator">+</button>
+                    
                     <button onclick="appendToDisplay('4')">4</button>
                     <button onclick="appendToDisplay('5')">5</button>
                     <button onclick="appendToDisplay('6')">6</button>
                     <button onclick="appendToDisplay('-')" class="operator">-</button>
+                    
                     <button onclick="appendToDisplay('1')">1</button>
                     <button onclick="appendToDisplay('2')">2</button>
                     <button onclick="appendToDisplay('3')">3</button>
                     <button onclick="appendToDisplay('*')" class="operator">×</button>
+                    
+                    <button onclick="toggleSign()" class="function">±</button>
                     <button onclick="appendToDisplay('0')">0</button>
                     <button onclick="appendToDisplay('.')" class="decimal">.</button>
-                    <button onclick="calculate()" class="equals">=</button>
                     <button onclick="appendToDisplay('/')" class="operator">÷</button>
+                    
+                    <button onclick="square()" class="function">x²</button>
+                    <button onclick="calculate()" class="equals" style="grid-column: span 3">=</button>
                 </div>
             </div>
         </div>

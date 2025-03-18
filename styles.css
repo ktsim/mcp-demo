@@ -63,6 +63,13 @@ body {
     margin: 0 auto;
 }
 
+.memory-display {
+    text-align: left;
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
 #display {
     width: 100%;
     height: 50px;
@@ -73,6 +80,7 @@ body {
     border: 2px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #f8f9fa;
 }
 
 .calc-buttons {
@@ -88,16 +96,37 @@ body {
     border-radius: 4px;
     cursor: pointer;
     background-color: #f8f9fa;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    user-select: none;
 }
 
 .calc-buttons button:hover {
     background-color: #e9ecef;
 }
 
+.calc-buttons button:active {
+    transform: scale(0.95);
+}
+
 .calc-buttons .operator {
     background-color: #e3f2fd;
     color: #1a73e8;
+}
+
+.calc-buttons .function {
+    background-color: #f3e5f5;
+    color: #9c27b0;
+}
+
+.calc-buttons .memory {
+    background-color: #fff3e0;
+    color: #ef6c00;
+    font-size: 1rem;
+}
+
+.calc-buttons .clear {
+    background-color: #ffebee;
+    color: #d32f2f;
 }
 
 .calc-buttons .equals {
@@ -109,6 +138,18 @@ body {
     background-color: #1557b0;
 }
 
-.calc-buttons button:active {
-    transform: scale(0.95);
+/* Responsive Design */
+@media (max-width: 400px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .calc-buttons button {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+    
+    .calc-buttons .memory {
+        font-size: 0.9rem;
+    }
 }
