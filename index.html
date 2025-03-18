@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World & Calculator App</title>
+    <title>Scientific Calculator & Hello World</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,13 +14,29 @@
         </div>
         
         <div class="section calculator">
-            <h2>Calculator</h2>
+            <h2>Scientific Calculator</h2>
             <div class="calc-container">
-                <div class="memory-display">
-                    <span id="memory-indicator">M: 0</span>
+                <div class="display-container">
+                    <div class="memory-display">
+                        <span id="memory-indicator">M: 0</span>
+                        <span id="angle-mode">DEG</span>
+                    </div>
+                    <div class="base-display">
+                        <span id="hex">HEX: 0</span>
+                        <span id="dec">DEC: 0</span>
+                        <span id="oct">OCT: 0</span>
+                        <span id="bin">BIN: 0</span>
+                    </div>
+                    <input type="text" id="display" readonly>
                 </div>
-                <input type="text" id="display" readonly>
-                <div class="calc-buttons">
+                
+                <div class="mode-toggles">
+                    <button onclick="toggleAngleMode()" class="mode-btn" id="angle-mode-btn">DEG</button>
+                    <button onclick="toggleScientificMode()" class="mode-btn" id="scientific-mode-btn">Basic</button>
+                </div>
+
+                <div class="calc-buttons" id="basic-buttons">
+                    <!-- Basic Calculator Buttons -->
                     <button onclick="memoryOperation('mc')" class="memory">MC</button>
                     <button onclick="memoryOperation('mr')" class="memory">MR</button>
                     <button onclick="memoryOperation('mPlus')" class="memory">M+</button>
@@ -53,6 +69,34 @@
                     
                     <button onclick="square()" class="function">x²</button>
                     <button onclick="calculate()" class="equals" style="grid-column: span 3">=</button>
+                </div>
+
+                <div class="calc-buttons scientific-buttons" id="scientific-buttons" style="display: none;">
+                    <!-- Scientific Calculator Buttons -->
+                    <button onclick="convertBase('hex')" class="base">HEX</button>
+                    <button onclick="convertBase('dec')" class="base">DEC</button>
+                    <button onclick="convertBase('oct')" class="base">OCT</button>
+                    <button onclick="convertBase('bin')" class="base">BIN</button>
+
+                    <button onclick="scientificFunction('sin')" class="scientific">sin</button>
+                    <button onclick="scientificFunction('cos')" class="scientific">cos</button>
+                    <button onclick="scientificFunction('tan')" class="scientific">tan</button>
+                    <button onclick="scientificFunction('pow')" class="scientific">x^y</button>
+
+                    <button onclick="scientificFunction('asin')" class="scientific">asin</button>
+                    <button onclick="scientificFunction('acos')" class="scientific">acos</button>
+                    <button onclick="scientificFunction('atan')" class="scientific">atan</button>
+                    <button onclick="scientificFunction('exp')" class="scientific">exp</button>
+
+                    <button onclick="scientificFunction('log')" class="scientific">log</button>
+                    <button onclick="scientificFunction('ln')" class="scientific">ln</button>
+                    <button onclick="insertConstant('pi')" class="scientific">π</button>
+                    <button onclick="insertConstant('e')" class="scientific">e</button>
+
+                    <button onclick="factorial()" class="scientific">n!</button>
+                    <button onclick="scientificFunction('cubeRoot')" class="scientific">³√</button>
+                    <button onclick="scientificFunction('cube')" class="scientific">x³</button>
+                    <button onclick="scientificFunction('reciprocal')" class="scientific">1/x</button>
                 </div>
             </div>
         </div>

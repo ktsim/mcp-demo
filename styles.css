@@ -15,7 +15,7 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 500px;
     width: 100%;
 }
 
@@ -59,21 +59,44 @@ body {
 }
 
 .calc-container {
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 auto;
 }
 
+.display-container {
+    margin-bottom: 1rem;
+}
+
 .memory-display {
-    text-align: left;
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 0.5rem;
     color: #666;
     font-size: 0.9rem;
 }
 
+.base-display {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+    font-size: 0.85rem;
+    text-align: left;
+}
+
+.base-display span {
+    background-color: #f8f9fa;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 #display {
     width: 100%;
     height: 50px;
-    margin-bottom: 1rem;
     font-size: 1.5rem;
     text-align: right;
     padding: 0.5rem;
@@ -81,6 +104,34 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
     background-color: #f8f9fa;
+    font-family: monospace;
+}
+
+.mode-toggles {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.mode-btn:hover {
+    background-color: #e9ecef;
+}
+
+.mode-btn.active {
+    background-color: #e3f2fd;
+    color: #1a73e8;
+    border-color: #1a73e8;
 }
 
 .calc-buttons {
@@ -91,7 +142,7 @@ body {
 
 .calc-buttons button {
     padding: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -124,6 +175,18 @@ body {
     font-size: 1rem;
 }
 
+.calc-buttons .scientific {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    font-size: 1rem;
+}
+
+.calc-buttons .base {
+    background-color: #fce4ec;
+    color: #c2185b;
+    font-size: 1rem;
+}
+
 .calc-buttons .clear {
     background-color: #ffebee;
     color: #d32f2f;
@@ -139,7 +202,7 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .container {
         padding: 1rem;
     }
@@ -149,7 +212,13 @@ body {
         font-size: 1rem;
     }
     
-    .calc-buttons .memory {
+    .calc-buttons .memory,
+    .calc-buttons .scientific,
+    .calc-buttons .base {
         font-size: 0.9rem;
+    }
+    
+    .base-display {
+        font-size: 0.75rem;
     }
 }
